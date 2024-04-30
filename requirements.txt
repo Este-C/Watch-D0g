@@ -1,0 +1,9 @@
+datasets
+bs4
+fpdf
+reportlab
+python3-nmap
+reportlab
+pexpect
+vulners
+colorama

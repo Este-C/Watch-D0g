@@ -1,0 +1,13 @@
+admin
+msfadmin
+user
+postgres
+sys
+service
+test
+root
+guest
+administrator
+info
+admin
+mysql
