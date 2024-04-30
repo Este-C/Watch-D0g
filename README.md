@@ -43,7 +43,7 @@ It should install all the library and package needed.
 go to **assets/wordlist/**
 there you can add your wordlist.
 
-**/!\ : rename the file as follow : ***
+** /!\ : rename the file as follow : **
 
 > - directory.txt   --> wordlist of subdirectories
 > - rockyou.txt     --> wordlist of password
