@@ -3,6 +3,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.lib.utils import ImageReader
+from reportlab.platypus import Image
 import json
 import os
 import sys
@@ -46,6 +47,17 @@ elements.append(title_paragraph)
 
 # Add a spacer
 elements.append(Spacer(1, 12 * mm))
+
+# Add favicon to the top right corner
+favicon_path = "./assets/collected/favicon.png"
+if os.path.exists(favicon_path):
+    with open(favicon_path, 'rb') as f:
+        img = ImageReader(f)
+        img_width, img_height = img.getSize()
+        aspect_ratio = img_width / img_height
+        favicon_width = 20  # Adjust this value as needed
+        favicon_height = favicon_width / aspect_ratio
+        elements.append(Image(favicon_path, width=favicon_width, height=favicon_height, hAlign='RIGHT'))
 
 # Add the NMAP scan results
 nmap_scan_results_paragraph = Paragraph("NMAP Scan Results:", getSampleStyleSheet()["Heading2"])
@@ -181,3 +193,19 @@ delete_file_if_exists(sqlmap_data)
 delete_file_if_exists(gather_data)
 delete_file_if_exists(favicon)
 delete_file_if_exists(nikto_data)
+
+def empty_file(file_path):
+    try:
+        # Open the file in write mode, which clears its contents
+        with open(file_path, 'w') as file:
+            pass  # Pass does nothing, so it just opens and immediately closes the file
+        print("File emptied successfully.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+file_path = "./database.json"
+empty_file(file_path)
+
+print("")
+print("Report generated ! ")
+print("")

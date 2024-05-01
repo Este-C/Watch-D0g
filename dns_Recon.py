@@ -86,7 +86,7 @@ def dns_recon(Hostname):
         json.dump(data, f, indent=4)
 
     # récupère SVG de la cible pour le rapport
-    subprocess.call(['wget', f'https://favicon.com/{Hostname}?s=256', '-O', './assets/collected/favicon.png'])
+    subprocess.call(['wget', f'https://favicone.com/{Hostname}?s=256', '-O', './assets/collected/favicon.png'])
     if os.path.exists('./assets/collected/favicon.png'):
         print("SVG image collected successfully.")
     else:

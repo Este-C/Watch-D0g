@@ -68,6 +68,7 @@ def show_menu(ip):
             delete_file_if_exists(gather_data)
             delete_file_if_exists(favicon)
             delete_file_if_exists(nikto_data)
+            empty_file(file_path)
             print(Fore.RED + "Everything is clean, Bye !" + Style.RESET_ALL)
             break
         else:
@@ -78,6 +79,18 @@ def delete_file_if_exists(file_path):
     if os.path.isfile(file_path):
         os.remove(file_path)
         print(f"Deleted existing file at {file_path}")
+
+def empty_file(file_path):
+    try:
+        # Open the file in write mode, which clears its contents
+        with open(file_path, 'w') as file:
+            pass  # Pass does nothing, so it just opens and immediately closes the file
+        print("File emptied successfully.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+file_path = "./database.json"
+
 
 
 show_menu(Ip)
