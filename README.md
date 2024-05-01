@@ -43,10 +43,13 @@ It should install all the library and package needed.
 go to **assets/wordlist/**
 there you can add your wordlist.
 
-** /!\ : rename the file as follow : **
+-- /!\ : rename the file as follow : --
 
 > - directory.txt   --> wordlist of subdirectories
 > - rockyou.txt     --> wordlist of password
 > - subdomains.txt  --> wordlist of subdomains
 > - usernames.txt   --> wordlist of usernames
 
+## Disclamer
+
+This Tool is RGPD friendly, it does not keep data of its use except the report generated at ** ./assets/result/ **
