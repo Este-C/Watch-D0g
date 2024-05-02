@@ -15,12 +15,14 @@ scan_result = []
 
 stop_threads = False
 
+# Scan funtion
 def gather_info(ip):
     global scan_result
     try:
         nm = nmap.PortScanner()
         nm.scan(ip, arguments='-sV -T4')
 
+# Scan parsing results
         scan_result = []
         for host in nm.all_hosts():
             if nm[host].state() == 'up':
@@ -45,11 +47,13 @@ def gather_info(ip):
             data['NMAP SCAN'] = {'Scan_Results': []}
         data['NMAP SCAN']['Scan_Results'].extend(scan_result)
 
+# Save the scan results to the database 
         with open('database.json', 'w') as f:
             json.dump(data, f, indent=4)
     except Exception as e:
         print("An error occurred in the thread:", e)
 
+# Loading animation
 def loading_animation():
     animations = ['\\', '|', '/', '-']
     idx = 0
@@ -58,7 +62,9 @@ def loading_animation():
         idx += 1
         time.sleep(0.1)
 
+# Searches for exploits using vulners.com API
 def search_exploits(scan_result):
+    # vulners.com API key
     vulners_api = vulners.VulnersApi('1B98SBNPOEDH9N238Q4M058MQDMCSY7VO7A6KZG3QHYFATN58WGXVM9JC2FVQ35H')
     exploit_list = []
     for result in scan_result:
@@ -78,6 +84,7 @@ exploit_list = search_exploits(scan_result)
 stop_threads = True
 loading_thread.join()
 
+# print results
 print("\n")
 print(Fore.YELLOW + '-----------------------------------------------------------------------' + Style.RESET_ALL)
 print(Fore.GREEN + "Scan Results:" + Style.RESET_ALL)
@@ -104,4 +111,5 @@ data['CVE_EXPLOIT'].extend(exploit_list)
 with open('database.json', 'w') as f:
     json.dump(data, f, indent=4)
 
+# call next page
 subprocess.call(['python3', 'dir.py', Ip, Hostname])
