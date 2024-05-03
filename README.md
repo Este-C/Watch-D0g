@@ -52,5 +52,5 @@ there you can add your wordlist.
 
 ## Disclamer
 
-If you encounter problem with the [Vulner] (https://vulners.com/docs/api_reference/apikey/) API key, you may need to generate a new one and add it to scan.py in the API key section.
+If you encounter problem with the [Vulner](https://vulners.com/docs/api_reference/apikey/) API key, you may need to generate a new one and add it to scan.py in the API key section.
 This Tool is RGPD friendly, it does not keep data of its use except the report generated at ./assets/result/
