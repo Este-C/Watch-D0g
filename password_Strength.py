@@ -1,5 +1,6 @@
 import re
 import subprocess
+from colorama import Fore, Style, Back
 
 def check_password_strength(password):
     # Check if password length is at least 8 characters
@@ -20,8 +21,8 @@ def check_password_strength(password):
 def main():
     while True:
         print("")
-        print("1. Check Password Strength")
-        print("2. Exit")
+        print(Fore.CYAN + "1"+ Style.RESET_ALL + "  Check Password Strength")
+        print(Fore.RED + "2"+ Style.RESET_ALL + "  Exit")
         print("")
         choice = input("Enter your choice: ")
 

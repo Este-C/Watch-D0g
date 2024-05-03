@@ -19,12 +19,14 @@ def loading_animation():
         idx += 1
         time.sleep(0.1)
 
+# Dir scan function
 def dir_scan(ip):
     global done
     done = False
     loading_thread = threading.Thread(target=loading_animation)
     loading_thread.start()
 
+    # Gobuster command
     command = ['gobuster', 'dir', '-u', f'http://{ip}/', '-w', './assets/wordlist/directory.txt', '-q', '--no-error', '--no-color']
     result = subprocess.run(command, capture_output=True, text=True)
 
@@ -49,6 +51,7 @@ def dir_scan(ip):
     done = True
     loading_thread.join()
 
+    # Display the result
     if result.returncode == 0:
         print("")
         print(Fore.GREEN + "Directory Scan Results:" + Style.RESET_ALL)
