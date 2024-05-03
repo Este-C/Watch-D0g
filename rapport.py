@@ -22,7 +22,7 @@ def delete_file_if_exists(file_path):
         print(f"Deleted existing file at {file_path}")
 
 # Define the path for the PDF file in the ./result directory
-report_file_path = f"./result/scan_results{Hostname}.pdf"
+report_file_path = f"./assets/scan_results{Hostname}.pdf"
 delete_file_if_exists(report_file_path)
 
 # Load data from the JSON file

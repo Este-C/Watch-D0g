@@ -74,12 +74,13 @@ def show_menu(ip):
         else:
             print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
 
-# flushing data
+# flushing data function
 def delete_file_if_exists(file_path):
     if os.path.isfile(file_path):
         os.remove(file_path)
         print(f"Deleted existing file at {file_path}")
 
+# empty file function
 def empty_file(file_path):
     try:
         # Open the file in write mode, which clears its contents
@@ -90,7 +91,5 @@ def empty_file(file_path):
         print(f"An error occurred: {e}")
 
 file_path = "./database.json"
-
-
 
 show_menu(Ip)
