@@ -89,8 +89,12 @@ def dns_recon(Hostname):
     subprocess.call(['wget', f'https://favicone.com/{Hostname}?s=256', '-O', './assets/collected/favicon.png'])
     if os.path.exists('./assets/collected/favicon.png'):
         print("SVG image collected successfully.")
+        print(Fore.YELLOW + '-----------------------------------------------------------------------' + Style.RESET_ALL)
+
     else:
         print("Failed to collect SVG image.")
+        print(Fore.YELLOW + '-----------------------------------------------------------------------' + Style.RESET_ALL)
+
 
     subprocess.call(['python3', 'scan.py', ipFound, Hostname])
 

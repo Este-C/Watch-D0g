@@ -32,8 +32,9 @@ def main():
             print("Vulnerability:", vulnerability)
         elif choice == "2":
             print("Returning to main menu ...")
-            subprocess.call(['python3', 'main.py'])
+            break
         else:
             print("Invalid choice. Please enter 1 or 2.")
 
 main()
+subprocess.call(['python3', 'main.py'])
