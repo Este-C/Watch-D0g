@@ -59,12 +59,14 @@ def dns_recon(Hostname):
     done = True
     loading_thread.join()
 
+    # if error going to ip scan
     if dns_process.returncode != 0:
         print(f"Error: {dns_error.decode()}")
         print(Fore.RED + "DNS recon failed. Going to scan IP." + Style.RESET_ALL)
         subprocess.call(['python3', 'scan.py', ipFound, Hostname])
         return
 
+    # print output
     print(Fore.LIGHTGREEN_EX + "DNS recon completed successfully." + Style.RESET_ALL)
     print("")
     print(Fore.YELLOW + '-----------------------------------------------------------------------' + Style.RESET_ALL)

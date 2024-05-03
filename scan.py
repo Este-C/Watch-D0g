@@ -8,6 +8,7 @@ import os
 import vulners
 from colorama import Fore, Style, Back
 
+# Récupération des informations du menu main
 Ip = sys.argv[1]
 Hostname = sys.argv[2]
 
@@ -64,7 +65,7 @@ def loading_animation():
 
 # Searches for exploits using vulners.com API
 def search_exploits(scan_result):
-    # vulners.com API key
+    # vulners API key
     vulners_api = vulners.VulnersApi('1B98SBNPOEDH9N238Q4M058MQDMCSY7VO7A6KZG3QHYFATN58WGXVM9JC2FVQ35H')
     exploit_list = []
     for result in scan_result:

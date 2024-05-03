@@ -18,10 +18,12 @@ Make sure the following packages are installed:
 - Hydra
 - Wget
 - Sqlmap
+- FTP
+- SSHpass
 
 If you encounter issues with Hydra's SSH brute force, run the following command:
 
-    $ kali-tweaks -h 
+     kali-tweaks -h 
 
 select '**hardening**' then select '**ssh client**'
 
@@ -31,10 +33,17 @@ select '**hardening**' then select '**ssh client**'
 
 Run this command :
 
-    $ chmod +x ./INSTALL.sh
-    $ ./INSTALL.sh
+     chmod +x ./INSTALL.sh
+     ./INSTALL.sh
 
 It should install all the library and package needed. 
+
+### Run the code
+
+>To lunch the code, run 
+    main.py file.
+>The result of the scan is generated at this path : 
+    ./assets/
 
 ---
 
@@ -52,5 +61,5 @@ there you can add your wordlist.
 
 ## Disclamer
 
-If you encounter problem with the [Vulner](https://vulners.com/docs/api_reference/apikey/) API key, you may need to generate a new one and add it to scan.py in the API key section.
-This Tool is RGPD friendly, it does not keep data of its use except the report generated at ./assets/result/
+If you encounter problem with the [Vulners](https://vulners.com/docs/api_reference/apikey/) API key, you may need to generate a new one and add it to scan.py in the API key section.
+This Tool is RGPD friendly, it does not keep data of its use except the report generated.
