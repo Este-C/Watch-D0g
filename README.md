@@ -1,5 +1,11 @@
 # W@tch-D0g Toolbox
 
+## Presentation
+
+This Toolbox is a School project. It aim to automatise casual information gathering on webserver (before any attack) this tool is designed for begginer who does not have much experience on information gathering.
+
+---
+
 ## Prerequisites
 
 This code should be run on a Linux distribution such as Debian (tested on Debian-Kali Linux).
