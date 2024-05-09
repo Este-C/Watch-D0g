@@ -19,11 +19,20 @@ if os.path.isfile('database.json'):
     with open('database.json') as f:
         data = json.load(f)
 
+def parse_scan_results(scan_results):
+    directories = []
+    for line in scan_results.split('\n'):
+        if line.strip():  # Ignore empty lines
+            directory = line.strip().split('(')[0].strip()
+            if 'php' or 'mysql' in directory:
+                directories.append({'Directory': directory})  # Append directory as a dictionary
+    return directories
+
 # Search for the Directory scan result that matches the php keyword
 dir_result = None
 if 'DIRECTORY SCAN' in data:
     scan_results = data['DIRECTORY SCAN']['Scan_Results']
-    dir_result = scan_results if isinstance(scan_results, list) else scan_results.split('\n')
+    dir_result = parse_scan_results(scan_results)
 
 def loading_animation():
     animations = ['\\', '|', '/', '-']
