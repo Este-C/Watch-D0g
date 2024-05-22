@@ -3,7 +3,7 @@
 # Install required packages
 echo "Installing required packages..."
 sudo apt-get update
-sudo apt-get install -y python3 nikto nmap gobuster dnsrecon hydra wget sqlmap sshpass ftp
+sudo apt-get install -y python3 pip nmap gobuster dnsrecon hydra wget sqlmap sshpass ftp nikto
 
 # Install Python libraries
 echo "Installing Python libraries..."
